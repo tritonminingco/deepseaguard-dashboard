@@ -1,0 +1,111 @@
+/* 
+  Root CSS variables for theming and color management.
+  These variables are used throughout the app for consistent styling.
+*/
+:root {
+  --primary-color: #00b4d8;           /* Main accent color */
+  --secondary-color: #007ea7;         /* Secondary accent color */
+  --alert-green: #06d6a0;             /* Success/OK status color */
+  --alert-yellow: #ffd166;            /* Warning status color */
+  --alert-red: #ff4d6d;               /* Error/alert status color */
+  --background-dark: #0c1c2c;         /* Main dark background */
+  --background-darker: #06101a;       /* Even darker background for contrast */
+  --background-panel: #14263a;        /* Panel/card background */
+  --text-light: #e0f7ff;              /* Main text color for dark backgrounds */
+  --text-dim: #a0c7d7;                /* Dimmed/secondary text color */
+  --ff-heading: 'Orbitron', sans-serif; /* Heading font */
+  --ff-body: 'Inter', sans-serif;       /* Body font */
+  --transition-speed: 0.3s;           /* Standard transition speed for UI effects */
+}
+
+/* 
+  Universal selector: 
+  Ensures all elements use border-box sizing and removes default margin/padding.
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  Body styling: 
+  Sets the default font, background, text color, and line height for the app.
+*/
+body {
+  font-family: var(--ff-body);
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* 
+  Heading styles: 
+  Uses the heading font and makes headings bold.
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-heading);
+  font-weight: 600;
+}
+
+/* 
+  Button styling: 
+  Ensures all buttons use the body font.
+*/
+button {
+  font-family: var(--ff-body);
+}
+
+/* 
+  Link styling: 
+  Uses the primary color and removes underline by default, adds underline on hover.
+*/
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 
+  Custom scrollbar styling for webkit browsers (Chrome, Edge, Safari).
+  Makes scrollbars match the app's color scheme.
+*/
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* 
+  AUV select dropdown styling:
+  Styles the dropdown for selecting AUVs to match the dashboard theme.
+*/
+.auv-select {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  background: var(--background-panel, #14263a);
+  color: var(--text-light, #e0f7ff);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.auv-select:focus {
+  border-color: var(--secondary-color, #007ea7);
+}
